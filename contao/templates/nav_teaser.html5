@@ -1,0 +1,19 @@
+<?php foreach ($this->items as $item): ?>
+	<div class="page_teaser block<?php if ($item['class']): ?> <?= $item['class'] ?><?php endif; ?>">
+		<?php if ($teaserImage = $this->getTeaserImage($item['id'])): ?>
+			<?php $this->insert('image', $teaserImage); ?>
+		<?php endif; ?>
+
+		<h3><a href="<?= $item['href'] ?: './' ?>" title="<?= $item['pageTitle'] ?: $item['title'] ?>"<?= $item['target'] ?><?= $item['rel'] ?? '' ?>><?= $item['link'] ?></a></h3>
+
+		<?php if ($item['teaser']): ?>
+			<div class="ce_text block">
+				<?= $item['teaser'] ?>
+			</div>
+		<?php endif; ?>
+	</div>
+
+	<?php if (!empty($item['subitems'])): ?>
+		<?= $item['subitems'] ?>
+	<?php endif; ?>
+<?php endforeach; ?>

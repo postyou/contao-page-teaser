@@ -1,0 +1,7 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+	<?php $this->insert('nav_teaser', $this->data); ?>
+
+<?php $this->endblock(); ?>

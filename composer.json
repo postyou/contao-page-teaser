@@ -1,0 +1,49 @@
+{
+    "name": "postyou/contao-page-teaser",
+    "type": "contao-module",
+    "description": "Page teaser functionality for Contao Open Source CMS",
+    "keywords": [
+        "contao",
+        "page teaser",
+        "teaser",
+        "preview"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Postyou Werbeagentur",
+            "homepage": "https://www.postyou.de"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "contao/core-bundle": "^4.13",
+        "terminal42/contao-pageimage": "^4.1"
+    },
+    "conflict": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.22",
+        "phpstan/phpstan-symfony": "^1.3",
+        "phpstan/phpstan": "^1.10",
+        "slam/phpstan-extensions": "^6.0",
+        "thecodingmachine/phpstan-strict-rules": "^1.0"
+    },
+    "extra": {
+        "contao-manager-plugin": "Postyou\\ContaoPageTeaserBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Postyou\\ContaoPageTeaserBundle\\": "src"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "php-http/discovery": true,
+            "contao/manager-plugin": true
+        }
+    }
+}
