@@ -38,8 +38,10 @@ class PageTeasersController extends AbstractContentElementController
 
         $template->navigationTpl = $contentModel->navigationTpl ?: 'nav_teaser';
 
+        $currentPage = $this->getPageModel();
+
         $template->data = [
-            'items' => $this->pageTeaserService->prepare($pageModels, $contentModel),
+            'items' => $this->pageTeaserService->prepare($pageModels, $contentModel, $currentPage),
             'inheritPageImage' => $contentModel->inheritPageImage,
             'imgSize' => $contentModel->size,
         ];

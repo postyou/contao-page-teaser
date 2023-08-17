@@ -11,6 +11,7 @@ use Contao\Model\Collection;
 use Contao\ModuleModel;
 use Contao\PageModel;
 use Contao\StringUtil;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Exception\ExceptionInterface;
 use Symfony\Component\Security\Core\Security;
 use Terminal42\PageimageBundle\PageimageHelper;
@@ -21,6 +22,7 @@ class PageTeaserService
         protected readonly PageimageHelper $pageImageHelper,
         protected readonly Studio $studio,
         protected readonly Security $security,
+        protected readonly RequestStack $requestStack,
     ) {
     }
 
@@ -29,7 +31,7 @@ class PageTeaserService
      *
      * @return array<array<string, mixed>>
      */
-    public function prepare(Collection $pages, ContentModel|ModuleModel $model): array
+    public function prepare(Collection $pages, ContentModel|ModuleModel $model, ?PageModel $currentPage): array
     {
         $items = [];
 
@@ -45,9 +47,13 @@ class PageTeaserService
                     continue;
                 }
 
-                $cssClass = ($pageModel->protected ? 'protected ' : '') . $pageModel->cssClass;
                 $row = $pageModel->row();
 
+                $path = $this->requestStack->getCurrentRequest()?->getPathInfo();
+                $isActive = $currentPage && $currentPage->id === $pageModel->id && "/{$href}" === $path;
+                $cssClass = ($isActive ? 'active ' : '').($pageModel->protected ? 'protected ' : '').$pageModel->cssClass;
+
+                $row['isActive'] = $isActive;
                 $row['title'] = StringUtil::specialchars($pageModel->title, true);
                 $row['pageTitle'] = StringUtil::specialchars($pageModel->pageTitle, true);
                 $row['class'] = $cssClass;
@@ -68,7 +74,7 @@ class PageTeaserService
                 }
 
                 // Set the rel attribute
-                if ($rel !== []) {
+                if ([] !== $rel) {
                     $row['rel'] = ' rel="'.implode(' ', $rel).'"';
                 }
 
