@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d77373df34d8a1bd48e90fe974bd422",
+    "content-hash": "e80a68cc9fd124e8b433be85d4ac5946",
     "packages": [
         {
             "name": "ausi/slug-generator",
@@ -340,16 +340,16 @@
         },
         {
             "name": "contao-components/ace",
-            "version": "1.24.0",
+            "version": "1.24.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contao-components/ace.git",
-                "reference": "c73d39fb19f87a8ae222aee989b8035b835c2635"
+                "reference": "f33515920f4754be2f155e963947fd0591e003c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contao-components/ace/zipball/c73d39fb19f87a8ae222aee989b8035b835c2635",
-                "reference": "c73d39fb19f87a8ae222aee989b8035b835c2635",
+                "url": "https://api.github.com/repos/contao-components/ace/zipball/f33515920f4754be2f155e963947fd0591e003c2",
+                "reference": "f33515920f4754be2f155e963947fd0591e003c2",
                 "shasum": ""
             },
             "require": {
@@ -369,9 +369,9 @@
             "description": "ACE code editor integration for Contao Open Source CMS",
             "support": {
                 "issues": "https://github.com/contao-components/ace/issues",
-                "source": "https://github.com/contao-components/ace/tree/1.24.0"
+                "source": "https://github.com/contao-components/ace/tree/1.24.1"
             },
-            "time": "2023-08-14T07:40:47+00:00"
+            "time": "2023-08-16T09:29:37+00:00"
         },
         {
             "name": "contao-components/chosen",
