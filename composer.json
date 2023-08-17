@@ -1,7 +1,7 @@
 {
     "name": "postyou/contao-page-teaser",
     "type": "contao-module",
-    "description": "Page teaser functionality for Contao Open Source CMS",
+    "description": "Contao extension that adds page teaser functionality.",
     "keywords": [
         "contao",
         "page teaser",

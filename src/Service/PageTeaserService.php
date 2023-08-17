@@ -20,16 +20,20 @@ class PageTeaserService
 {
     public function __construct(
         protected readonly PageimageHelper $pageImageHelper,
-        protected readonly Studio $studio,
-        protected readonly Security $security,
         protected readonly RequestStack $requestStack,
+        protected readonly Security $security,
+        protected readonly Studio $studio,
     ) {
     }
 
     /**
+     * Prepare the pages for the template. Based on ModuleCustomnav.
+     *
      * @param Collection<PageModel> $pages
      *
      * @return array<array<string, mixed>>
+     *
+     * @see Contao\ModuleCustomnav
      */
     public function prepare(Collection $pages, ContentModel|ModuleModel $model, ?PageModel $currentPage): array
     {

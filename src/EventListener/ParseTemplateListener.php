@@ -39,6 +39,7 @@ class ParseTemplateListener
                 return null;
             }
 
+            // For nav modules we need to access the module properties
             if ($template->module instanceof Module) {
                 $inherit = $template->module->inheritPageImage;
                 $imgSize = $template->module->imgSize;
@@ -47,6 +48,7 @@ class ParseTemplateListener
                 $imgSize = $template->imgSize;
             }
 
+            // Find an image for the page (uses the first page image)
             $image = $this->pageImageHelper->getOneByPageAndIndex($pageModel, inherit: (bool) $inherit);
 
             if (null === $image) {
@@ -57,6 +59,7 @@ class ParseTemplateListener
                 ->setSize($imgSize) // @phpstan-ignore-line
             ;
 
+            // Overwrite the metadata if the option was set in the page settings
             if ($pageModel->pageImageOverwriteMeta) {
                 $figure->setOverwriteMetadata(new Metadata([
                     Metadata::VALUE_ALT => $image['alt'],
@@ -65,6 +68,7 @@ class ParseTemplateListener
                 ]));
             }
 
+            // Return the image figure data
             return $figure->from($image['uuid'])->build()->getLegacyTemplateData();
         };
     }
