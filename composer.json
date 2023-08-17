@@ -1,6 +1,6 @@
 {
     "name": "postyou/contao-page-teaser",
-    "type": "contao-module",
+    "type": "contao-bundle",
     "description": "Contao extension that adds page teaser functionality.",
     "keywords": [
         "contao",
