@@ -68,7 +68,7 @@ class PageTeaserService
                 }
 
                 // Set the rel attribute
-                if (!empty($rel)) {
+                if ($rel !== []) {
                     $row['rel'] = ' rel="'.implode(' ', $rel).'"';
                 }
 

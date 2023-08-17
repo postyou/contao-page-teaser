@@ -33,9 +33,9 @@ class ParseTemplateListener
         }
 
         $template->getTeaserImage = function (int $pageId) use ($template): ?array {
-            $page = PageModel::findById($pageId);
+            $pageModel = PageModel::findById($pageId);
 
-            if (!$page instanceof PageModel) {
+            if (!$pageModel instanceof PageModel) {
                 return null;
             }
 
@@ -47,7 +47,7 @@ class ParseTemplateListener
                 $imgSize = $template->imgSize;
             }
 
-            $image = $this->pageImageHelper->getOneByPageAndIndex($page, inherit: (bool) $inherit);
+            $image = $this->pageImageHelper->getOneByPageAndIndex($pageModel, inherit: (bool) $inherit);
 
             if (null === $image) {
                 return null;
@@ -57,7 +57,7 @@ class ParseTemplateListener
                 ->setSize($imgSize) // @phpstan-ignore-line
             ;
 
-            if ($page->pageImageOverwriteMeta) {
+            if ($pageModel->pageImageOverwriteMeta) {
                 $figure->setOverwriteMetadata(new Metadata([
                     Metadata::VALUE_ALT => $image['alt'],
                     Metadata::VALUE_TITLE => $image['title'],

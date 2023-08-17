@@ -23,10 +23,10 @@ class PageTeasersController extends AbstractContentElementController
     ) {
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
+    protected function getResponse(Template $template, ContentModel $contentModel, Request $request): Response
     {
         /** @var array<int> $ids */
-        $ids = StringUtil::deserialize($model->pages, true);
+        $ids = StringUtil::deserialize($contentModel->pages, true);
 
         // Get all active pages and also include root pages if the language is added to the URL
         $pageModels = PageModel::findPublishedRegularByIds($ids, ['includeRoot' => true]);
@@ -37,9 +37,9 @@ class PageTeasersController extends AbstractContentElementController
         }
 
         $template->data = [
-            'items' => $this->pageTeaserService->prepare($pageModels, $model),
-            'inheritPageImage' => $model->inheritPageImage,
-            'imgSize' => $model->size,
+            'items' => $this->pageTeaserService->prepare($pageModels, $contentModel),
+            'inheritPageImage' => $contentModel->inheritPageImage,
+            'imgSize' => $contentModel->size,
         ];
 
         return $template->getResponse();
