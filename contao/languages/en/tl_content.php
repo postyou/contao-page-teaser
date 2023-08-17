@@ -9,3 +9,5 @@ $GLOBALS['TL_LANG']['tl_content']['inheritPageImage'][0] = 'Use parent image';
 $GLOBALS['TL_LANG']['tl_content']['inheritPageImage'][1] = 'Use image of the parent page if no image is set for a page.';
 $GLOBALS['TL_LANG']['tl_content']['showProtected'][0] = 'Show protected items';
 $GLOBALS['TL_LANG']['tl_content']['showProtected'][1] = 'Show items that are usually only visible to authenticated members.';
+$GLOBALS['TL_LANG']['tl_content']['navigationTpl'][0] = 'Navigation template';
+$GLOBALS['TL_LANG']['tl_content']['navigationTpl'][1] = 'Here you can select the navigation template.';

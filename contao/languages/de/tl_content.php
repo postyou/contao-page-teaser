@@ -9,4 +9,5 @@ $GLOBALS['TL_LANG']['tl_content']['inheritPageImage'][0] = 'Übergeordnete Bilde
 $GLOBALS['TL_LANG']['tl_content']['inheritPageImage'][1] = 'Falls für eine Seite kein Bild gesetzt ist, wird das Bild der übergeordneten Seite verwendet.';
 $GLOBALS['TL_LANG']['tl_content']['showProtected'][0] = 'Geschützte Seiten anzeigen';
 $GLOBALS['TL_LANG']['tl_content']['showProtected'][1] = 'Seiten anzeigen, die sonst nur für angemeldete Mitglieder sichtbar sind.';
-
+$GLOBALS['TL_LANG']['tl_content']['navigationTpl'][0] = 'Navigations-Template';
+$GLOBALS['TL_LANG']['tl_content']['navigationTpl'][1] = 'Hier können Sie das Navigations-Template auswählen.';
