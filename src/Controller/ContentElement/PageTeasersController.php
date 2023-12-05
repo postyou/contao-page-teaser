@@ -28,8 +28,19 @@ class PageTeasersController extends AbstractContentElementController
         /** @var array<int> $ids */
         $ids = StringUtil::deserialize($contentModel->pages, true);
 
-        // Get all active pages and also include root pages if the language is added to the URL
-        $pageModels = PageModel::findPublishedRegularByIds($ids, ['includeRoot' => true]);
+        if ($contentModel->useChildPages) {
+            $arrPages = [];
+            foreach ($ids as $id) {
+                $pageCollection = PageModel::findByPid($id, ['includeRoot' => true]);
+                \array_push($arrPages, ...$pageCollection->getModels());
+            }
+
+            $pageModels = new Collection($arrPages, 'tl_page');
+        } else {
+            // Get all active pages and also include root pages if the language is added to the URL
+            $pageModels = PageModel::findPublishedRegularByIds($ids, ['includeRoot' => true]);
+        }
+
 
         // Return if there are no pages
         if (!$pageModels instanceof Collection) {

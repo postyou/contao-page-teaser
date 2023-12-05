@@ -6,7 +6,7 @@ use Doctrine\DBAL\Platforms\MySQLPlatform;
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['page_teasers'] = '
     {type_legend},type,headline;
-    {teasers_legend},pages,showProtected;
+    {teasers_legend},pages,showProtected,useChildPages;
     {image_legend},size,inheritPageImage;
     {template_legend:hide},customTpl,navigationTpl;
     {protected_legend:hide},protected;
@@ -27,6 +27,13 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['inheritPageImage'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'w50 m12'],
+    'sql' => ['type' => 'string', 'length' => 1, 'fixed' => true, 'default' => ''],
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['useChildPages'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'w50'],
     'sql' => ['type' => 'string', 'length' => 1, 'fixed' => true, 'default' => ''],
 ];
 
