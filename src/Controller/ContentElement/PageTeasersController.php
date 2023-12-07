@@ -35,7 +35,10 @@ class PageTeasersController extends AbstractContentElementController
             $arrPages = [];
             foreach ($ids as $id) {
                 $pageCollection = PageModel::findByPid($id, ['includeRoot' => true]);
-                array_push($arrPages, ...$pageCollection->getModels());
+
+                if ($pageCollection instanceof Collection) {
+                    array_push($arrPages, ...$pageCollection->getModels());
+                }
             }
 
             $pageModels = new Collection($arrPages, 'tl_page');
