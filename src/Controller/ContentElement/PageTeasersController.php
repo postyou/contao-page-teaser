@@ -33,6 +33,7 @@ class PageTeasersController extends AbstractContentElementController
 
         if ($contentModel->useChildPages) {
             $arrPages = [];
+
             foreach ($ids as $id) {
                 $pageCollection = PageModel::findPublishedRegularByPid($id, ['includeRoot' => true]);
 
