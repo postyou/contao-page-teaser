@@ -11,9 +11,9 @@ use Contao\Model\Collection;
 use Contao\ModuleModel;
 use Contao\PageModel;
 use Contao\StringUtil;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Exception\ExceptionInterface;
-use Symfony\Component\Security\Core\Security;
 use Terminal42\PageimageBundle\PageimageHelper;
 
 class PageTeaserService
